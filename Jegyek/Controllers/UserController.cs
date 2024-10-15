@@ -36,5 +36,47 @@ namespace Jegyek.Controllers
                 return StatusCode(201, user);
             }
         }
+
+        [HttpPut("{azon}")]
+        public ActionResult<User> Put(Guid azon, UpdateUserDto updateUserDto)
+        {
+            using (var context = new UserDbContext())
+            {
+
+                var existingUser = context.Tantargy.FirstOrDefault(x => x.Azon == azon);
+
+                if (existingUser != null)
+                {
+                    existingUser.Jegy = updateUserDto.jegy;
+                    existingUser.Leiras = updateUserDto.leiras;
+                    existingUser.ido = updateUserDto.ido;
+
+                    context.Tantargy.Update(existingUser);
+                    context.SaveChanges();
+                }
+
+                return StatusCode(200, existingUser);
+
+            }
+        }
+
+        [HttpDelete]
+        public ActionResult<object> Delete(Guid azon)
+        {
+            using (var context = new UserDbContext())
+            {
+                var existingUser = context.Tantargy.FirstOrDefault(x => x.Azon == azon);
+
+                if (existingUser == null)
+                {
+                    return NotFound(new { message = "Felhasználó nem található!" });
+                }
+
+                context.Tantargy.Remove(existingUser);
+                context.SaveChanges();
+
+                return StatusCode(200, new { message = "Sikeres törlés!" });
+            }
+        }
     }
 }
