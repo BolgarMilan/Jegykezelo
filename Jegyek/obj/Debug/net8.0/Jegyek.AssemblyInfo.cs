@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Jegyek")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a34620a9bac8bc869d679f400bb3683daee98615")]
 [assembly: System.Reflection.AssemblyProductAttribute("Jegyek")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Jegyek")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
